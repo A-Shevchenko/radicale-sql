@@ -84,6 +84,12 @@ def create_meta() -> sa.MetaData:
             sa.LargeBinary(),
             nullable=False,
         ),
+        sa.Column(
+            'modified',
+            sa.DateTime(),
+            default=datetime.datetime.now,
+            nullable=True,
+        ),
         sa.UniqueConstraint('collection_id', 'name'),
     )
 
